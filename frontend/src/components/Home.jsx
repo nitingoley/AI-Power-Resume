@@ -24,6 +24,7 @@ const Home = ({ setResult }) => {
     list.splice(index, 1);
     setCompanyInfo(list);
   };
+
   const handleUpdateCompany = (e, index) => {
     const { name, value } = e.target;
     const list = [...companyInfo];
@@ -43,20 +44,27 @@ const Home = ({ setResult }) => {
     formData.append("education", education);
     formData.append("certifications", certifications);
     formData.append("workHistory", JSON.stringify(companyInfo));
+
+    setLoading(true);
+
     axios
-      .post("http://localhost:4000/resume/create", formData, {})
+      .post("https://ai-power-resume.vercel.app/resume/create", formData)
       .then((res) => {
         if (res.data.message) {
           setResult(res.data.data);
           navigate("/resume");
         }
       })
-      .catch((err) => console.error(err));
-    setLoading(true);
+      .catch((err) => {
+        console.error(err);
+      })
+      .finally(() => setLoading(false));
   };
+
   if (loading) {
     return <Loading />;
   }
+
   return (
     <div className="app">
       <h1>Resume Builder</h1>
