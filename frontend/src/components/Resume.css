@@ -1,0 +1,130 @@
+/* Container and Layout */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #333;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.headerTitle,
+.resumeTitle {
+  font-size: 1.1em;
+  margin: 5px 0;
+  color: #666;
+}
+
+/* Image styling */
+.resumeImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #4CAF50;
+}
+
+/* Section Titles */
+.resumeBodyTitle {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin: 25px 0 10px;
+  color: #333;
+  border-bottom: 2px solid #4CAF50;
+  padding-bottom: 5px;
+}
+
+/* Section Content */
+.resumeBodyContent {
+  margin: 10px 0;
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+/* Print Button Styling */
+.print-button {
+  display: inline-block;
+  margin: 15px 0;
+  padding: 8px 15px;
+  font-size: 1em;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.print-button:hover {
+  background-color: #45a049;
+}
+
+/* Education and Certifications Styling */
+.education,
+.certifications {
+  margin: 15px 0;
+}
+
+.resumeBodyContent strong {
+  font-weight: bold;
+  color: #333;
+}
+
+.education-entry,
+.certification-entry {
+  margin: 10px 0;
+  font-size: 0.95em;
+}
+
+.education-entry .degree,
+.certification-entry .certification {
+  font-weight: bold;
+  color: #4CAF50;
+}
+
+.education-entry .institution,
+.certification-entry .issuer {
+  color: #666;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+  .resumeImage {
+      margin-top: 10px;
+  }
+}
+
+/* Print Mode Styling */
+@media print {
+  .print-button {
+      display: none;
+  }
+
+  /* Adjust container for print */
+  .container {
+      width: 100%;
+      padding: 0;
+      box-shadow: none;
+  }
+
+  /* Ensure all sections have consistent spacing */
+  .resumeBodyContent {
+      page-break-inside: avoid;
+  }
+}
