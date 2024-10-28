@@ -25,7 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/uploads", express.static(path.resolve("uploads")));
 app.use(express.json());
 
-app.use(cors({ origin:"https://ai-power-resume-ux.vercel.app"}));
+app.use(cors());
 
 // Helper function to generate unique IDs
 const generateID = () => Math.random().toString(36).substring(2, 10);
